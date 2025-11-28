@@ -33,10 +33,27 @@ toggle.onclick = () => {
     : (html.setAttribute("data-theme", "light"),
       localStorage.setItem("theme", "light"));
 };
-// Obtener elementos
 const savedTheme = localStorage.getItem("theme") || "light";
 document.documentElement.setAttribute("data-theme", savedTheme);
+const reverse = document.getElementById("reverse");
 
+reverse.onclick = () => {
+  if (window.variables && window.variables.name) {
+    window.variables.name = window.variables.name
+      .split("")
+      .reverse()
+      .join("");
+    render(window.variables);
+  }
+  if (window.variables && window.variables.lastName) {
+    window.variables.lastName = window.variables.lastName
+      .split("")
+      .reverse()
+      .join("");
+    render(window.variables);
+  }
+};
+// Obtener elementos
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); // print on the console
   // here we ask the logical questions to make decisions on how to build the html
