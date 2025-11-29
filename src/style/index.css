@@ -42,7 +42,6 @@ body {
   color: var(--text-primary);
 }
 
-/* Button for dark mode */
 .darkmode-container {
   display: flex;
   justify-content: end;
@@ -98,22 +97,23 @@ body {
 
 .container-widget {
   width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .filters {
-  display: flex;
-  flex-direction: column;
+  display: block;
   margin: 0 10px;
 }
 
 .filters li {
-  display: inline-block;
   padding: 3px 0;
   list-style: none;
 }
 
 .filters li label {
-  display: block;
   width: 100%;
   border-radius: 5px;
   font-size: 15px;
@@ -136,7 +136,7 @@ body {
 
 .filters li select {
   width: 100%;
-  padding: 0;
+  padding: 10px;
   height: 25px;
   font-size: 15px;
   font-weight: 500;
@@ -147,12 +147,49 @@ body {
   color: var(--text-primary);
 }
 
-.container-widget {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .container-filters {
+    width: 100%;
+    padding: 0;
+  }
+
+  .container-widget {
+    width: 100%;
+  }
+
+  .filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .filters li {
+    display: block;
+  }
+
+  .filters li label {
+    display: block;
+    width: 100%;
+  }
+
+  .filters li input {
+    display: block;
+    width: 100%;
+  }
+
+  .filters li select {
+    display: block;
+    width: 100%;
+  }
 }
 
 .widget {
@@ -255,6 +292,7 @@ body {
   border: none;
   border-radius: 0 0 3px 0;
 }
+
 .reverse {
   width: 30%;
   text-transform: uppercase;
